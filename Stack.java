@@ -1,80 +1,64 @@
+package StackUsingLinkedListUsingSimpleWay;
 
 public class Stack {
-	int capacity;
-	int top;
-	int a[];
+	Node head;
 
-	Stack(int length) {
-		this.capacity = length;
-		this.top = -1;
-		this.a = new int[length];
-	}
-
-	boolean isEmpty() {
-		boolean value = false;
-		if (top == -1) {
-			value = true;
-		}
-		return value;
-	}
-
-	boolean isFull() {
-		boolean value = false;
-		if (top == (capacity - 1)) {
-			value = true;
-		}
-		return value;
-	}
-
-	void push(int n) {
-		boolean test = isFull();
-		if (test == true) {
-			System.out.println("Stack is full");
-			System.exit(1);
+	public void push(int num) {
+		if (head == null) {
+			head = new Node(num);
 		} else {
-			top = top + 1;
-			a[top] = n;
+			Node curNode = head;
+			while (curNode.next != null) {
+				curNode = curNode.next;
+			}
+			curNode.next = new Node(num);
 		}
 	}
 
-	int pop() {
-		boolean test = isEmpty();
-		int value;
-		if (test == true) {
-			System.out.println("Stack is empty");
-			System.exit(1);
+	public void pop() {
+		Node prev = null;
+		Node curNode = head;
+		while (curNode.next != null) {
+			prev = curNode;
+			curNode = curNode.next;
 		}
-
-		value = a[top];
-		top = top - 1;
-		return value;
-	}
-
-	void printStack() {
-		for (int i = 0; i <= top; i++) {
-			System.out.println("At " + i + " th position " + a[i]);
-		}
-	}
-
-	int peek() {
-		int value = 0;
-		if (isEmpty()) {
-			System.out.println("The Stack is empty");
-			return value;
+		if (prev == null) {
+			if (curNode.next == null) {
+				head = null;
+			}
 		} else {
-			value = a[top];
-			return value;
-		}
-	}
-
-	int search(int n) {
-		int value = -1;
-		for (int i = 0; i <= top; i++) {
-			if (n == a[i]) {
-				value = i;
-
+			if (curNode.next == null) {
+				prev.next = null;
 			}
 		}
-		return value;
+	}
+
+	public void displayStack() {
+		Node curNode = head;
+		if (curNode == null) {
+			System.out.println("Stack is empty.");
+		} else {
+			while (curNode.next != null) {
+				System.out.println(curNode.data);
+				curNode = curNode.next;
+			}
+			System.out.println(curNode.data);
+		}
+	}
+
+	public int countLengthOfStack() {
+		int length =0 ;
+		Node curNode = head;
+		if (curNode == null) {
+			return length;
+		} else {
+			while (curNode.next != null) {
+				length++;
+				curNode = curNode.next;
+			}
+			length++;
+			return length;
+			
+		}
 	}
 }
