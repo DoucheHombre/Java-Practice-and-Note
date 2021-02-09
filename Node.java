@@ -1,4 +1,4 @@
-package Practice;
+package QueueUsingLinkedList;
 
 public class Node {
 	int data;

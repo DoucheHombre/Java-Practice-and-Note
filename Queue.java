@@ -1,71 +1,42 @@
+package QueueUsingLinkedList;
 
 public class Queue {
-	int front;
-	int rear;
-	int arr[];
-	int capacity;
+	Node head;
 
-	Queue(int size) {
-		this.capacity = size;
-		this.arr = new int[size];
-		this.front = -1;
-		this.rear = -1;
-	}
-
-	boolean isFull() {
-		if (rear == (capacity - 1)) {
-			return true;
+	public void enQueue(int num) {
+		if (head == null) {
+			head = new Node(num);
 		} else {
-			return false;
-		}
-	}
-
-	boolean isEmpty() {
-		if (front == -1) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	void enQueue(int n) {
-		if (isFull()) {
-			System.out.println("Queue is full!!!");
-		} else {
-			if (front == -1) {
-				front = front + 1;
+			Node curNode = head;
+			while (curNode.next != null) {
+				curNode = curNode.next;
 			}
-			rear = rear + 1;
-			arr[rear] = n;
+			curNode.next = new Node(num);
 		}
 	}
 
-	void deQueue() {
-		int element;
-		if (isEmpty()) {
-			System.out.println("Queue is empty!!!");
-			element = -11111;
+	public void printQueue() {
+		if (head == null) {
+			System.out.println("Queue is empty!!");
 		} else {
-			element = arr[front];
-			if (front == rear) {
-				front = -1;
-				rear = -1;
-			} else {
-				front = front + 1;
+			Node curNode = head;
+			while (curNode.next != null) {
+				System.out.println(curNode.data);
+				curNode = curNode.next;
 			}
+			System.out.println(curNode.data);
 		}
-		System.out.println("The removed element is= "+element);
 	}
 
-	void displayQueue() {
-		if (isEmpty()) {
-			System.out.println("Queue is empty!!!");
+	public void deQueue() {
+		
+		Node curNode = head;
+
+		if (curNode.next == null) {
+			head = null;
 		} else {
-			System.out.println("The Queue is= ");
-			for (int i = front; i <= rear; i++) {
-				System.out.print(arr[i] + " ");
-			}
-			System.out.println();
+			head = curNode.next;
 		}
+
 	}
 }
