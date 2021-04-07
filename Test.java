@@ -1,48 +1,16 @@
-package StackUsingLinkedListUsingSimpleWay;
+package com.overloading.java;
 
 public class Test {
-	public static void main(String args[])
-	{
-		Stack stack = new Stack();
-		stack.push(10);
-		stack.push(20);
-		stack.push(30);
-		stack.push(40);
-		stack.push(50);
-		stack.push(60);
+
+	public static void main(String[] args) {
+		German germ = new German();
+		Deutsch d = new Deutsch(44,"Europe");
+		germ.apps(d);
+		germ.apps(99);
+		germ.apps("Bee Lingua");
+		germ.apps(1879, "Linguarani");
 		
-		stack.displayStack();
-		System.out.println("The length of Stack is= "+stack.countLengthOfStack());
-		System.out.println("----------------------");
-		
-		stack.pop();
-		stack.displayStack();
-		System.out.println("The length of Stack is= "+stack.countLengthOfStack());
-		System.out.println("----------------------");
-		
-		stack.pop();
-		stack.displayStack();
-		System.out.println("The length of Stack is= "+stack.countLengthOfStack());
-		System.out.println("----------------------");
-		
-		stack.pop();
-		stack.displayStack();
-		System.out.println("The length of Stack is= "+stack.countLengthOfStack());
-		System.out.println("----------------------");
-		
-		stack.pop();
-		stack.displayStack();
-		System.out.println("The length of Stack is= "+stack.countLengthOfStack());
-		System.out.println("----------------------");
-		
-		stack.pop();
-		stack.displayStack();
-		System.out.println("The length of Stack is= "+stack.countLengthOfStack());
-		System.out.println("----------------------");
-		
-		stack.pop();
-		stack.displayStack();
-		System.out.println("The length of Stack is= "+stack.countLengthOfStack());
+
 	}
-	
+
 }
